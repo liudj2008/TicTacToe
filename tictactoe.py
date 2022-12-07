@@ -27,14 +27,15 @@ class TicTacToe:
                 break
 
             # Computer generated number
-            auto_select_number = random.choice(tuple(self.number))
-            print(f"Computer chose position: {auto_select_number}")
-            self.mark_position('o', auto_select_number)
-            print(self.record)
-            if TicTacToe.claim_winner(self.record['o']):
-                self.result = 'You Loose'
-                found_winner = 1
-                break
+            if self.number:
+                auto_select_number = random.choice(tuple(self.number))
+                print(f"Computer chose position: {auto_select_number}")
+                self.mark_position('o', auto_select_number)
+                print(self.record)
+                if TicTacToe.claim_winner(self.record['o']):
+                    self.result = 'You Loose'
+                    found_winner = 1
+                    break
         if found_winner == 0:
             print(self.record)
             self.result = 'Draw Game'
